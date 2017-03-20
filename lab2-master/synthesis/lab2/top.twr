@@ -1,0 +1,99 @@
+--------------------------------------------------------------------------------
+Release 14.6 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 2
+-n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf
+
+Design file:              top.ncd
+Physical constraint file: top.pcf
+Device,package,speed:     xc6slx45,fgg676,C,-2 (PRODUCTION 1.23 2013-06-08)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk_i
+------------+------------+------------+------------+------------+---------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                     | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)    | Phase  |
+------------+------------+------------+------------+------------+---------------------+--------+
+reset_n_i   |    5.027(R)|      SLOW  |   -2.544(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+------------+------------+------------+------------+------------+---------------------+--------+
+
+Clock clk_i to Pad
+------------+-----------------+------------+-----------------+------------+---------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                     | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)    | Phase  |
+------------+-----------------+------------+-----------------+------------+---------------------+--------+
+blank_o     |        14.447(R)|      SLOW  |         6.514(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<0>   |        17.370(R)|      SLOW  |         8.235(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<1>   |        17.189(R)|      SLOW  |         8.115(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<2>   |        14.069(R)|      SLOW  |         6.407(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<3>   |        14.779(R)|      SLOW  |         6.804(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<4>   |        17.033(R)|      SLOW  |         8.045(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<5>   |        14.287(R)|      SLOW  |         6.539(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<6>   |        17.705(R)|      SLOW  |         8.439(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blue_o<7>   |        17.536(R)|      SLOW  |         8.293(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<0>  |        18.250(R)|      SLOW  |         8.746(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<1>  |        16.749(R)|      SLOW  |         7.905(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<2>  |        16.579(R)|      SLOW  |         7.811(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<3>  |        16.624(R)|      SLOW  |         7.851(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<4>  |        14.992(R)|      SLOW  |         6.916(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<5>  |        16.340(R)|      SLOW  |         7.668(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<6>  |        15.146(R)|      SLOW  |         6.999(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<7>  |        15.695(R)|      SLOW  |         7.215(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+pix_clock_o |        12.109(R)|      SLOW  |         5.212(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+            |        12.047(F)|      SLOW  |         5.146(F)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+psave_o     |        14.564(R)|      SLOW  |         6.627(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<0>    |        17.952(R)|      SLOW  |         8.652(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<1>    |        18.219(R)|      SLOW  |         8.802(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<2>    |        17.923(R)|      SLOW  |         8.614(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<3>    |        17.932(R)|      SLOW  |         8.642(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<4>    |        17.748(R)|      SLOW  |         8.544(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<5>    |        17.498(R)|      SLOW  |         8.314(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<6>    |        17.359(R)|      SLOW  |         8.261(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<7>    |        17.169(R)|      SLOW  |         8.157(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+sync_o      |        14.212(R)|      SLOW  |         6.419(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+vga_hsync_o |        14.420(R)|      SLOW  |         6.595(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+vga_vsync_o |        14.111(R)|      SLOW  |         6.429(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+------------+-----------------+------------+-----------------+------------+---------------------+--------+
+
+Clock to Setup on destination clock clk_i
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_i          |   12.171|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Mon Mar 20 18:52:54 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 265 MB
+
+
+
