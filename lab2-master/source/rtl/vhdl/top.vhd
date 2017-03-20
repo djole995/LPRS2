@@ -39,14 +39,16 @@ end top;
 architecture rtl of top is
 
   constant RES_NUM : natural := 6;
+  constant SH_REG_WIDTH : natural := 20;                  --Sirina brojaca koji kontrolise brzinu pomeranja teksta
+  constant SH_REG_MAX_VALUE : natural := 256*256*16-1;   
+  constant TEXT_BITS_NUMBER: natural := 2;                --Sirina brojaca koji indeksira tekst
+  constant TEXT_SIZE : natural := 3;					--Duzina teksta
 
   type t_param_array is array (0 to RES_NUM-1) of natural;
-  type text_array is array (0 to 2) of natural;
+  type text_array is array (0 to TEXT_SIZE-1) of natural;
   type t_state is (IDLE, RUNNING);
   
-  constant SH_REG_WIDTH : natural := 20;
-  constant SH_REG_MAX_VALUE : natural := 256*256*16-1;
-  constant TEXT_BITS_NUMBER: natural := 2;
+  
   
   constant H_RES_ARRAY           : t_param_array := ( 0 => 64, 1 => 640,  2 => 800,  3 => 1024,  4 => 1152,  5 => 1280,  others => 0 );
   constant V_RES_ARRAY           : t_param_array := ( 0 => 48, 1 => 480,  2 => 600,  3 => 768,   4 => 864,   5 => 1024,  others => 0 );
@@ -176,19 +178,17 @@ end component reg;
   signal dir_pixel_column    : std_logic_vector(10 downto 0);
   signal dir_pixel_row       : std_logic_vector(10 downto 0);
   
-  signal mem_r : std_logic_vector(13 downto 0);
-  
-  signal char_cnt_r : std_logic_vector(1 downto 0);
-  signal char_cnt : std_logic_vector(1 downto 0);
-  signal sh_cnt : std_logic_vector(SH_REG_WIDTH-1 downto 0);
-  signal sh_cnt_r : std_logic_vector(SH_REG_WIDTH-1 downto 0);
-  signal print_sig : std_logic;
-  signal run_s : std_logic_vector(0 downto 0);
-  signal run_s_i : std_logic_vector(0 downto 0);
-  
-  constant input_text: text_array := ( 0 => 1, 1 => 2, 2 => 3);
---  constant H_RES_ARRAY           : t_param_array := ( 0 => 64, 1 => 640,  2 => 800,  3 => 1024,  4 => 1152,  5 => 1280,  others => 0 );
-  constant text: natural := 1;
+  signal mem_r : std_logic_vector(13 downto 0);                  --Pokazivac na trenutnu lokaciju u koju se vrsi upis
+  signal char_cnt_r : std_logic_vector(TEXT_BITS_NUMBER-1 downto 0);              --registar koji indeksira elemente teksta
+  signal char_cnt : std_logic_vector(TEXT_BITS_NUMBER-1 downto 0);					
+  signal sh_cnt : std_logic_vector(SH_REG_WIDTH-1 downto 0);         --Brojac koji kada dostigne max vrednost prouzrokuje 
+  signal sh_cnt_r : std_logic_vector(SH_REG_WIDTH-1 downto 0);        --pomeranje teksta
+  signal print_sig : std_logic;												--Signalizacija kada sift brojac dostigne max vrednost
+  signal run_s : std_logic_vector(0 downto 0);						--Odredjuje stanje u kom se sistem nalazi
+  signal run_s_i : std_logic_vector(0 downto 0);					-- 0 : inicijalno punjenje text memorije razmacima  
+																					-- 1 : ispis i pomeranje teksta po ekranu
+																					
+  constant input_text: text_array := ( 0 => 1, 1 => 2, 2 => 3);        --Tekst koji se ispisuje na ekranu
 
 begin
 
@@ -224,7 +224,7 @@ begin
 
 	char_reg : reg 
 	GENERIC MAP (
-	   WIDTH => 2,
+	   WIDTH => TEXT_BITS_NUMBER,
 		RST_INIT => 0
 	)		
 	PORT MAP (
@@ -380,9 +380,9 @@ end process;
 					else run_s;
 		  
 		 process(mem_r, run_s, sh_cnt_r, print_sig) begin
-			if(run_s(0) = '0' and mem_r < 40*30+3) then
+			if(run_s = "0" and mem_r < 40*30+3) then
 				char_address <= mem_r+1;
-			elsif(run_s(0) = '0' and mem_r = 40*30+3) then
+			elsif(run_s = "0" and mem_r = 40*30+3) then
 				char_address <= (others => '0');
 			else
 				if(mem_r = 40*30+2) then
@@ -397,10 +397,6 @@ end process;
 			end if;
 		end process;
 					
-		 -- char_address <= (others => '0') when mem_r = 40*30+2
-			--				else mem_r-2 when  sh_cnt_r = SH_REG_MAX_VALUE-4
-				--			else mem_r+1 when print_sig = '1'  
-					--		else mem_r;
 							
 			sh_cnt <= sh_cnt_r+1; 
 							
