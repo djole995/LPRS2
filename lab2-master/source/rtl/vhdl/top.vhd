@@ -189,6 +189,13 @@ end component reg;
 																					-- 1 : ispis i pomeranje teksta po ekranu
 																					
   constant input_text: text_array := ( 0 => 1, 1 => 2, 2 => 3);        --Tekst koji se ispisuje na ekranu
+  
+  
+  constant QUAD_SIZE : natural := 50;
+  constant QUAD_POSITION_X : natural := 50;
+  constant QUAD_POSITION_Y : natural := 50;
+  signal graph_mem_r : std_logic_vector(13 downto 0);
+	
 
 begin
 
@@ -256,6 +263,18 @@ begin
 		in_rst => vga_rst_n_s,
 		i_d => run_s_i,
 		o_q => run_s
+	);
+	
+	graphics_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 14,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => pix_clock_s,
+		in_rst => vga_rst_n_s,
+		i_d => pixel_address,
+		o_q => graph_mem_r
 	);
 
   clk5m_inst : ODDR2
