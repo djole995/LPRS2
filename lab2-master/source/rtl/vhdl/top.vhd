@@ -203,7 +203,9 @@ end component reg;
   
   signal draw_r: std_logic_vector(0 downto 0);
   signal draw_i: std_logic_vector(0 downto 0);
-  signal colon_match: std_logic := '0';
+  
+  signal sh_graph_cnt : std_logic_vector(SH_REG_WIDTH-1 downto 0);         --Brojac koji kada dostigne max vrednost prouzrokuje 
+  signal sh_graph_cnt_r : std_logic_vector(SH_REG_WIDTH-1 downto 0);
 
 	
 
@@ -309,6 +311,18 @@ begin
 		in_rst => vga_rst_n_s,
 		i_d => pixel_row,
 		o_q => pixel_row_r
+	);
+	
+	sh_graph_reg : reg 
+	GENERIC MAP (
+	   WIDTH => SH_REG_WIDTH,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => pix_clock_s,
+		in_rst => vga_rst_n_s,
+		i_d => sh_graph_cnt,
+		o_q => sh_graph_cnt_r
 	);
 	
 	draw_reg : reg 
@@ -493,24 +507,25 @@ end process;
   --pixel_we
  pixel_we <= '1';
 pixel_address <= (others => '0') when graph_mem_r = 9600
-					else graph_mem_r+16 when pixel_colon_r = 4
 					else graph_mem_r+1;
 
 --kvadrat 80*80	
-draw_i(0) <= '1' when pixel_address = 4808
-			else  '0'  when pixel_address = 6412
+draw_i(0) <= '1' when pixel_address = pixel_row_r
+			else  '0'  when pixel_address = pixel_row_r+1604
 			else  draw_r(0);
 
-pixel_colon <= (others => '0') when pixel_colon_r = 4
+pixel_colon <= (others => '0') when pixel_colon_r = 5
 				else pixel_colon_r+1 when draw_r(0) = '1'
 				else pixel_colon_r;
-					
-pixel_row <= (others => '0') when pixel_row_r = 4820
-				else pixel_row_r+1;
 				
+sh_graph_cnt <= sh_graph_cnt_r+1;
+					
+pixel_row <= conv_std_logic_vector(4800, 16) when pixel_row_r = 4816 and sh_graph_cnt = SH_REG_MAX_VALUE
+				else pixel_row_r+1 when sh_graph_cnt = SH_REG_MAX_VALUE
+				else pixel_row_r;
 
-process(graph_mem_r) begin
-	if(draw_r(0) = '1') then
+process(draw_r, pixel_colon_r) begin
+	if(draw_r(0) = '1' and pixel_colon_r > 0) then
 		pixel_value <= (others => '1');
 	else
 		pixel_value <= (others => '0');
