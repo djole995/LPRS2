@@ -194,7 +194,17 @@ end component reg;
   constant QUAD_SIZE : natural := 50;
   constant QUAD_POSITION_X : natural := 50;
   constant QUAD_POSITION_Y : natural := 50;
-  signal graph_mem_r : std_logic_vector(13 downto 0);
+  signal graph_mem_r : std_logic_vector(19 downto 0);
+  
+  signal pixel_colon_r : std_logic_vector(15 downto 0);
+  signal pixel_colon : std_logic_vector(15 downto 0);
+  signal pixel_row : std_logic_vector(15 downto 0); 
+  signal pixel_row_r : std_logic_vector(15 downto 0);
+  
+  signal draw_r: std_logic_vector(0 downto 0);
+  signal draw_i: std_logic_vector(0 downto 0);
+  signal colon_match: std_logic := '0';
+
 	
 
 begin
@@ -209,11 +219,11 @@ begin
   
   -- removed to inputs pin
   direct_mode <= '0';
-  display_mode     <= "01";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
+  display_mode     <= "10";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
   
   font_size        <= x"1";
   show_frame       <= '1';
-  foreground_color <= x"FFFFFF";
+  foreground_color <= x"00FF00";
   background_color <= x"000000";
   frame_color      <= x"FF0000";
 
@@ -267,7 +277,7 @@ begin
 	
 	graphics_reg : reg 
 	GENERIC MAP (
-	   WIDTH => 14,
+	   WIDTH => 20,
 		RST_INIT => 0
 	)		
 	PORT MAP (
@@ -275,6 +285,42 @@ begin
 		in_rst => vga_rst_n_s,
 		i_d => pixel_address,
 		o_q => graph_mem_r
+	);
+	
+	colon_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 16,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => pix_clock_s,
+		in_rst => vga_rst_n_s,
+		i_d => pixel_colon,
+		o_q => pixel_colon_r
+	);
+	
+	row_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 16,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => pix_clock_s,
+		in_rst => vga_rst_n_s,
+		i_d => pixel_row,
+		o_q => pixel_row_r
+	);
+	
+	draw_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 1,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => pix_clock_s,
+		in_rst => vga_rst_n_s,
+		i_d => draw_i,
+		o_q => draw_r
 	);
 
   clk5m_inst : ODDR2
@@ -393,7 +439,7 @@ end process;
   --char_we
 
   
-		  char_we <= '1';
+		  char_we <= '0';
 		  
 		  run_s_i <= "1" when mem_r = 40*30+3
 					else run_s;
@@ -431,9 +477,9 @@ end process;
 					 char_value <= conv_std_logic_vector(32,6);
 				else		
 				  case(char_cnt_r) is
-					 when "00" => char_value <= conv_std_logic_vector(input_text(0), 6);
-					 when "01" => char_value <= conv_std_logic_vector(input_text(1), 6);
-					 when others => char_value <= conv_std_logic_vector(input_text(2), 6);
+					 when "00" => char_value <= conv_std_logic_vector(input_text(2), 6);
+					 when "01" => char_value <= conv_std_logic_vector(input_text(0), 6);
+					 when others => char_value <= conv_std_logic_vector(input_text(1), 6);
 				  end case;
 				end if;  
 			end process;
@@ -445,6 +491,29 @@ end process;
   --pixel_address
   --pixel_value
   --pixel_we
-  
+ pixel_we <= '1';
+pixel_address <= (others => '0') when graph_mem_r = 9600
+					else graph_mem_r+13 when pixel_colon_r = 7
+					else graph_mem_r+1;
+					
+draw_i(0) <= '1' when pixel_address = 4808
+			else  '0'  when pixel_address = 6815
+			else  draw_r(0);
+
+pixel_colon <= (others => '0') when pixel_colon_r = 7
+				else pixel_colon_r+1 when draw_r(0) = '1'
+				else pixel_colon_r;
+					
+pixel_row <= (others => '0') when pixel_row_r = 4820
+				else pixel_row_r+1;
+				
+
+process(graph_mem_r) begin
+	if(draw_r(0) = '1') then
+		pixel_value <= (others => '1');
+	else
+		pixel_value <= (others => '0');
+	end if;
+end process;  
   
 end rtl;

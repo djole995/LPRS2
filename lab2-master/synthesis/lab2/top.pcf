@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.68d on Mon Mar 20 18:52:40 2017
+// Written by: Map P.68d on Tue Mar 21 19:00:55 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -35,57 +35,47 @@ COMP "red_o<0>" LOCATE = SITE "B4" LEVEL 1;
 COMP "pix_clock_o" LOCATE = SITE "C14" LEVEL 1;
 COMP "red_o<1>" LOCATE = SITE "A4" LEVEL 1;
 COMP "red_o<2>" LOCATE = SITE "A5" LEVEL 1;
-PIN vga_top_i/Maddsub_n0103_pins<92> = BEL "vga_top_i/Maddsub_n0103" PINNAME
+PIN vga_top_i/Maddsub_n0100_pins<92> = BEL "vga_top_i/Maddsub_n0100" PINNAME
         CLK;
-PIN vga_top_i/text_mem_i/Mram_text_mem2_pins<26> = BEL
-        "vga_top_i/text_mem_i/Mram_text_mem2" PINNAME CLKA;
-PIN vga_top_i/text_mem_i/Mram_text_mem2_pins<27> = BEL
-        "vga_top_i/text_mem_i/Mram_text_mem2" PINNAME CLKB;
-PIN vga_top_i/text_mem_i/Mram_text_mem1_pins<26> = BEL
-        "vga_top_i/text_mem_i/Mram_text_mem1" PINNAME CLKA;
-PIN vga_top_i/text_mem_i/Mram_text_mem1_pins<27> = BEL
-        "vga_top_i/text_mem_i/Mram_text_mem1" PINNAME CLKB;
-PIN vga_top_i/text_mem_i/Mram_text_mem3_pins<26> = BEL
-        "vga_top_i/text_mem_i/Mram_text_mem3" PINNAME CLKA;
-PIN vga_top_i/text_mem_i/Mram_text_mem3_pins<27> = BEL
-        "vga_top_i/text_mem_i/Mram_text_mem3" PINNAME CLKB;
-PIN vga_top_i/char_rom_i/BRAM_MEM_I/B6_pins<11> = BEL
-        "vga_top_i/char_rom_i/BRAM_MEM_I/B6" PINNAME CLKA;
+PIN vga_top_i/graphics_mem_i/Mram_graphics_mem32_pins<28> = BEL
+        "vga_top_i/graphics_mem_i/Mram_graphics_mem32" PINNAME CLKA;
+PIN vga_top_i/graphics_mem_i/Mram_graphics_mem32_pins<29> = BEL
+        "vga_top_i/graphics_mem_i/Mram_graphics_mem32" PINNAME CLKB;
 PIN clk5m_inst_pins<1> = BEL "clk5m_inst" PINNAME CK0;
 PIN clk5m_inst_pins<2> = BEL "clk5m_inst" PINNAME CK1;
-TIMEGRP vga_top_i_vga_i_res_1_dcm25_i_clkfx = BEL "run_reg/r_q_0" BEL
-        "char_reg/r_q_0" BEL "char_reg/r_q_1" BEL "sh_reg/r_q_0" BEL
-        "sh_reg/r_q_1" BEL "sh_reg/r_q_2" BEL "sh_reg/r_q_3" BEL
-        "sh_reg/r_q_4" BEL "sh_reg/r_q_5" BEL "sh_reg/r_q_6" BEL
-        "sh_reg/r_q_7" BEL "sh_reg/r_q_8" BEL "sh_reg/r_q_9" BEL
-        "sh_reg/r_q_10" BEL "sh_reg/r_q_11" BEL "sh_reg/r_q_12" BEL
-        "sh_reg/r_q_13" BEL "sh_reg/r_q_14" BEL "sh_reg/r_q_15" BEL
-        "sh_reg/r_q_16" BEL "sh_reg/r_q_17" BEL "sh_reg/r_q_18" BEL
-        "sh_reg/r_q_19" BEL "vga_top_i/vga_i/res_1.dcm25_i/clkout1_buf" BEL
-        "vga_top_i/vga_i/SRL16_inst/SRL16E" PIN
-        "vga_top_i/Maddsub_n0103_pins<92>" BEL
-        "vga_top_i/vga_i/locked_del_reg_r" BEL
+TIMEGRP vga_top_i_vga_i_res_1_dcm25_i_clkfx = BEL
+        "vga_top_i/vga_i/locked_del_reg_r" BEL "draw_reg/r_q_0" PIN
+        "vga_top_i/Maddsub_n0100_pins<92>" BEL "graphics_reg/r_q_0" BEL
+        "graphics_reg/r_q_1" BEL "graphics_reg/r_q_2" BEL "graphics_reg/r_q_3"
+        BEL "graphics_reg/r_q_4" BEL "graphics_reg/r_q_5" BEL
+        "graphics_reg/r_q_6" BEL "graphics_reg/r_q_7" BEL "graphics_reg/r_q_8"
+        BEL "graphics_reg/r_q_9" BEL "graphics_reg/r_q_10" BEL
+        "graphics_reg/r_q_11" BEL "graphics_reg/r_q_12" BEL
+        "graphics_reg/r_q_13" BEL "graphics_reg/r_q_14" BEL
+        "graphics_reg/r_q_15" BEL "graphics_reg/r_q_16" BEL
+        "graphics_reg/r_q_17" BEL "graphics_reg/r_q_18" BEL
+        "graphics_reg/r_q_19" BEL "vga_top_i/vga_i/SRL16_inst/SRL16E" BEL
+        "vga_top_i/vga_i/res_1.dcm25_i/clkout1_buf" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_0" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_0" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_9" BEL
+        "vga_top_i/vga_i/vga_sync_i/h_count_r_8" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_7" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_6" BEL
-        "vga_top_i/vga_i/vga_sync_i/h_count_r_8" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_5" BEL
-        "vga_top_i/vga_i/vga_sync_i/h_count_r_4" BEL
-        "vga_top_i/vga_i/vga_sync_i/h_count_r_2" BEL
-        "vga_top_i/vga_i/vga_sync_i/h_count_r_1" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_3" BEL
+        "vga_top_i/vga_i/vga_sync_i/h_count_r_2" BEL
+        "vga_top_i/vga_i/vga_sync_i/h_count_r_4" BEL
+        "vga_top_i/vga_i/vga_sync_i/h_count_r_1" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_9" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_8" BEL
-        "vga_top_i/vga_i/vga_sync_i/v_count_r_7" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_6" BEL
+        "vga_top_i/vga_i/vga_sync_i/v_count_r_5" BEL
+        "vga_top_i/vga_i/vga_sync_i/v_count_r_7" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_4" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_3" BEL
-        "vga_top_i/vga_i/vga_sync_i/v_count_r_5" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_2" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_1" BEL
-        "vga_top_i/vga_i/vga_sync_i/green_r_0" BEL
         "vga_top_i/vga_i/vga_sync_i/vert_sync_out_r" BEL
         "vga_top_i/vga_i/vga_sync_i/horiz_sync_out_r" BEL
         "vga_top_i/vga_i/vga_sync_i/vert_sync_out_d_r" BEL
@@ -93,25 +83,18 @@ TIMEGRP vga_top_i_vga_i_res_1_dcm25_i_clkfx = BEL "run_reg/r_q_0" BEL
         "vga_top_i/vga_i/vga_sync_i/sync_r" BEL
         "vga_top_i/vga_i/vga_sync_i/blank_r" BEL
         "vga_top_i/vga_i/vga_sync_i/psave_r" BEL
-        "vga_top_i/vga_i/vga_sync_i/horiz_sync_r" BEL
-        "vga_top_i/vga_i/vga_sync_i/blank_d_r" BEL
-        "vga_top_i/vga_i/vga_sync_i/psave_d_r" BEL "mem_reg/r_q_13" BEL
-        "mem_reg/r_q_12" BEL "mem_reg/r_q_11" BEL "mem_reg/r_q_10" BEL
-        "mem_reg/r_q_9" BEL "mem_reg/r_q_8" BEL "mem_reg/r_q_7" BEL
-        "mem_reg/r_q_6" BEL "mem_reg/r_q_5" BEL "mem_reg/r_q_4" BEL
-        "mem_reg/r_q_3" BEL "mem_reg/r_q_2" BEL "mem_reg/r_q_1" BEL
-        "mem_reg/r_q_0" BEL "vga_top_i/vga_i/vga_sync_i/red_r_0" BEL
         "vga_top_i/vga_i/vga_sync_i/vert_sync_r" BEL
-        "vga_top_i/vga_i/vga_sync_i/sync_d_r" PIN
-        "vga_top_i/text_mem_i/Mram_text_mem2_pins<26>" PIN
-        "vga_top_i/text_mem_i/Mram_text_mem2_pins<27>" PIN
-        "vga_top_i/text_mem_i/Mram_text_mem1_pins<26>" PIN
-        "vga_top_i/text_mem_i/Mram_text_mem1_pins<27>" PIN
-        "vga_top_i/text_mem_i/Mram_text_mem3_pins<26>" PIN
-        "vga_top_i/text_mem_i/Mram_text_mem3_pins<27>" PIN
-        "vga_top_i/char_rom_i/BRAM_MEM_I/B6_pins<11>" PIN "clk5m_inst_pins<1>"
-        PIN "clk5m_inst_pins<2>" PIN "clk5m_inst_pins<1>" PIN
-        "clk5m_inst_pins<2>";
+        "vga_top_i/vga_i/vga_sync_i/horiz_sync_r" BEL
+        "vga_top_i/vga_i/vga_sync_i/sync_d_r" BEL
+        "vga_top_i/vga_i/vga_sync_i/blank_d_r" BEL
+        "vga_top_i/vga_i/vga_sync_i/psave_d_r" BEL "colon_reg/r_q_2" BEL
+        "colon_reg/r_q_1" BEL "colon_reg/r_q_0" BEL
+        "vga_top_i/vga_i/vga_sync_i/red_r_0" BEL
+        "vga_top_i/vga_i/vga_sync_i/green_r_0" PIN
+        "vga_top_i/graphics_mem_i/Mram_graphics_mem32_pins<28>" PIN
+        "vga_top_i/graphics_mem_i/Mram_graphics_mem32_pins<29>" PIN
+        "clk5m_inst_pins<1>" PIN "clk5m_inst_pins<2>" PIN "clk5m_inst_pins<1>"
+        PIN "clk5m_inst_pins<2>";
 PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN vga_top_i/vga_i/res_1.dcm25_i/dcm_sp_inst_pins<2> = BEL
