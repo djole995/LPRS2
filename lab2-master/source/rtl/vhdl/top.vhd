@@ -493,14 +493,15 @@ end process;
   --pixel_we
  pixel_we <= '1';
 pixel_address <= (others => '0') when graph_mem_r = 9600
-					else graph_mem_r+13 when pixel_colon_r = 7
+					else graph_mem_r+16 when pixel_colon_r = 4
 					else graph_mem_r+1;
-					
+
+--kvadrat 80*80	
 draw_i(0) <= '1' when pixel_address = 4808
-			else  '0'  when pixel_address = 6815
+			else  '0'  when pixel_address = 6412
 			else  draw_r(0);
 
-pixel_colon <= (others => '0') when pixel_colon_r = 7
+pixel_colon <= (others => '0') when pixel_colon_r = 4
 				else pixel_colon_r+1 when draw_r(0) = '1'
 				else pixel_colon_r;
 					
