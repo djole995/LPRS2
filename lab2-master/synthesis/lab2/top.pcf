@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.68d on Tue Mar 21 19:00:55 2017
+// Written by: Map P.68d on Wed Mar 22 10:06:38 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -54,7 +54,12 @@ TIMEGRP vga_top_i_vga_i_res_1_dcm25_i_clkfx = BEL
         "graphics_reg/r_q_13" BEL "graphics_reg/r_q_14" BEL
         "graphics_reg/r_q_15" BEL "graphics_reg/r_q_16" BEL
         "graphics_reg/r_q_17" BEL "graphics_reg/r_q_18" BEL
-        "graphics_reg/r_q_19" BEL "vga_top_i/vga_i/SRL16_inst/SRL16E" BEL
+        "graphics_reg/r_q_19" BEL "colon_reg/r_q_2" BEL "colon_reg/r_q_3" BEL
+        "colon_reg/r_q_4" BEL "colon_reg/r_q_5" BEL "colon_reg/r_q_6" BEL
+        "colon_reg/r_q_7" BEL "colon_reg/r_q_8" BEL "colon_reg/r_q_9" BEL
+        "colon_reg/r_q_10" BEL "colon_reg/r_q_11" BEL "colon_reg/r_q_12" BEL
+        "colon_reg/r_q_13" BEL "colon_reg/r_q_14" BEL "colon_reg/r_q_15" BEL
+        "vga_top_i/vga_i/SRL16_inst/SRL16E" BEL
         "vga_top_i/vga_i/res_1.dcm25_i/clkout1_buf" BEL
         "vga_top_i/vga_i/vga_sync_i/h_count_r_0" BEL
         "vga_top_i/vga_i/vga_sync_i/v_count_r_0" BEL
@@ -87,8 +92,7 @@ TIMEGRP vga_top_i_vga_i_res_1_dcm25_i_clkfx = BEL
         "vga_top_i/vga_i/vga_sync_i/horiz_sync_r" BEL
         "vga_top_i/vga_i/vga_sync_i/sync_d_r" BEL
         "vga_top_i/vga_i/vga_sync_i/blank_d_r" BEL
-        "vga_top_i/vga_i/vga_sync_i/psave_d_r" BEL "colon_reg/r_q_2" BEL
-        "colon_reg/r_q_1" BEL "colon_reg/r_q_0" BEL
+        "vga_top_i/vga_i/vga_sync_i/psave_d_r" BEL
         "vga_top_i/vga_i/vga_sync_i/red_r_0" BEL
         "vga_top_i/vga_i/vga_sync_i/green_r_0" PIN
         "vga_top_i/graphics_mem_i/Mram_graphics_mem32_pins<28>" PIN

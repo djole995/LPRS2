@@ -198,8 +198,8 @@ end component reg;
   
   signal pixel_colon_r : std_logic_vector(15 downto 0);
   signal pixel_colon : std_logic_vector(15 downto 0);
-  signal pixel_row : std_logic_vector(15 downto 0); 
-  signal pixel_row_r : std_logic_vector(15 downto 0);
+  signal pixel_row : std_logic_vector(15 downto 0) := conv_std_logic_vector(4800, 16); 
+  signal pixel_row_r : std_logic_vector(15 downto 0) := conv_std_logic_vector(4800, 16);
   
   signal draw_r: std_logic_vector(0 downto 0);
   signal draw_i: std_logic_vector(0 downto 0);
@@ -506,26 +506,26 @@ end process;
   --pixel_value
   --pixel_we
  pixel_we <= '1';
-pixel_address <= (others => '0') when graph_mem_r = 9600
+pixel_address <= (others => '0') when graph_mem_r = 9600-1
+				--	else graph_mem_r+16 when pixel_colon_r = 4
 					else graph_mem_r+1;
 
 --kvadrat 80*80	
-draw_i(0) <= '1' when pixel_address = pixel_row_r
-			else  '0'  when pixel_address = pixel_row_r+1604
-			else  draw_r(0);
+draw_i(0) <= '1' when graph_mem_r >= 4808 and graph_mem_r < 4808+1604 and (pixel_colon_r >= 8 and pixel_colon_r < 12) 
+			else  '0';
 
-pixel_colon <= (others => '0') when pixel_colon_r = 5
-				else pixel_colon_r+1 when draw_r(0) = '1'
-				else pixel_colon_r;
+pixel_colon <= (others => '0') when pixel_colon_r = 19
+				else pixel_colon_r+1; -- when draw_r(0) = '1'
+				--else pixel_colon_r;
 				
-sh_graph_cnt <= sh_graph_cnt_r+1;
+--sh_graph_cnt <= sh_graph_cnt_r+1;
 					
-pixel_row <= conv_std_logic_vector(4800, 16) when pixel_row_r = 4816 and sh_graph_cnt = SH_REG_MAX_VALUE
-				else pixel_row_r+1 when sh_graph_cnt = SH_REG_MAX_VALUE
+pixel_row <= conv_std_logic_vector(4800, 16) when pixel_row_r = 4816 and sh_graph_cnt_r = SH_REG_MAX_VALUE
+				else pixel_row_r+1 when sh_graph_cnt_r = SH_REG_MAX_VALUE
 				else pixel_row_r;
 
 process(draw_r, pixel_colon_r) begin
-	if(draw_r(0) = '1' and pixel_colon_r > 0) then
+	if(draw_r = "1") then
 		pixel_value <= (others => '1');
 	else
 		pixel_value <= (others => '0');
