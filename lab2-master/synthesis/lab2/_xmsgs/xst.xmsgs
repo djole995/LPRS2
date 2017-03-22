@@ -20,19 +20,7 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"D:\LPRS2\lab2-master\source\rtl\vhdl\vga_top.vhd" Line 301: Assignment to <arg fmt="%s" index="1">grid_size</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"D:\LPRS2\lab2-master\source\rtl\vhdl\top.vhd" Line 207: Net &lt;<arg fmt="%s" index="1">sh_graph_cnt[19]</arg>&gt; does not have a driver.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="old" >&quot;<arg fmt="%s" index="1">D:\LPRS2\lab2-master\source\rtl\vhdl\top.vhd</arg>&quot; line <arg fmt="%d" index="2">304</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">row_reg</arg>&gt; of block &lt;<arg fmt="%s" index="4">reg</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">top</arg>&gt;. Underlying logic will be removed.
-</msg>
-
-<msg type="warning" file="Xst" num="2972" delta="old" >&quot;<arg fmt="%s" index="1">D:\LPRS2\lab2-master\source\rtl\vhdl\top.vhd</arg>&quot; line <arg fmt="%d" index="2">316</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">sh_graph_reg</arg>&gt; of block &lt;<arg fmt="%s" index="4">reg</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">top</arg>&gt;. Underlying logic will be removed.
-</msg>
-
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">D:\LPRS2\lab2-master\source\rtl\vhdl\top.vhd</arg>&quot; line <arg fmt="%s" index="2">359</arg>: Output port &lt;<arg fmt="%s" index="3">dir_pixel_row_o</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">vga_top_i</arg>&gt; is unconnected or connected to loadless signal.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">sh_graph_cnt</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">wr_addr_i&lt;13:13&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -119,6 +107,8 @@
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">green_r_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_sync</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;green_r_1&gt; &lt;green_r_2&gt; &lt;green_r_3&gt; &lt;green_r_4&gt; &lt;green_r_5&gt; &lt;green_r_6&gt; &lt;green_r_7&gt; </arg>
 </msg>
+
+<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">top</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">sh_reg/r_q</arg>&gt; </msg>
 
 <msg type="info" file="Xst" num="2399" delta="old" >RAMs &lt;<arg fmt="%s" index="1">vga_top_i/graphics_mem_i/Mram_graphics_mem32</arg>&gt;, &lt;<arg fmt="%s" index="2">vga_top_i/graphics_mem_i/Mram_graphics_mem31</arg>&gt; are equivalent, second RAM is removed
 </msg>
@@ -213,31 +203,82 @@
 <msg type="info" file="Xst" num="2399" delta="old" >RAMs &lt;<arg fmt="%s" index="1">vga_top_i/graphics_mem_i/Mram_graphics_mem32</arg>&gt;, &lt;<arg fmt="%s" index="2">vga_top_i/graphics_mem_i/Mram_graphics_mem3</arg>&gt; are equivalent, second RAM is removed
 </msg>
 
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">vga_top_i/vga_i/vga_sync_i/h_count_r_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">vga_top_i/vga_i/vga_sync_i/v_count_r_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;colon_reg/r_q_1&gt; &lt;sh_reg/r_q_1&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">vga_top_i/vga_i/vga_sync_i/h_count_r_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sh_reg/r_q_2&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sh_reg/r_q_3&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sh_reg/r_q_4&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_13</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sh_reg/r_q_5&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_12</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;sh_reg/r_q_6&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_11</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;colon_reg/r_q_0&gt; </arg>
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_10</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_9</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_8</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">colon_reg/r_q_5</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_19</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_18</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_17</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_16</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_15</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">graphics_reg/r_q_14</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_0&gt; &lt;colon_reg/r_q_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_1&gt; &lt;colon_reg/r_q_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">sh_reg/r_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;graphics_reg/r_q_6&gt; </arg>
 </msg>
 
 </messages>
