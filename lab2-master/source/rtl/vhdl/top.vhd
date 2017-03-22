@@ -188,7 +188,7 @@ end component reg;
   signal run_s_i : std_logic_vector(0 downto 0);					-- 0 : inicijalno punjenje text memorije razmacima  
 																					-- 1 : ispis i pomeranje teksta po ekranu
 																					
-  constant input_text: text_array := ( 0 => 1, 1 => 2, 2 => 3);        --Tekst koji se ispisuje na ekranu
+  constant input_text: text_array := ( 0 => 22, 1 => 7, 2 => 1);        --Tekst koji se ispisuje na ekranu
   
   
   constant QUAD_SIZE : natural := 50;
@@ -221,7 +221,7 @@ begin
   
   -- removed to inputs pin
   direct_mode <= '0';
-  display_mode     <= "10";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
+  display_mode     <= "11";  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
   
   font_size        <= x"1";
   show_frame       <= '1';
@@ -453,7 +453,7 @@ end process;
   --char_we
 
   
-		  char_we <= '0';
+		  char_we <= '1';
 		  
 		  run_s_i <= "1" when mem_r = 40*30+3
 					else run_s;

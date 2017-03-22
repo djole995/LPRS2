@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.07 secs
  
 --> Reading design: top.prj
 
@@ -217,7 +217,7 @@ INFO:Xst:3210 - "D:\LPRS2\lab2-master\source\rtl\vhdl\top.vhd" line 359: Output 
     Found 11-bit comparator greater for signal <dir_pixel_column[10]_GND_5_o_LessThan_25_o> created at line 438
     Found 14-bit comparator greater for signal <mem_r[13]_GND_5_o_LessThan_45_o> created at line 462
     Found 20-bit comparator greater for signal <sh_cnt_r[19]_PWR_5_o_LessThan_61_o> created at line 485
-    Found 20-bit comparator lessequal for signal <n0068> created at line 485
+    Found 20-bit comparator lessequal for signal <n0069> created at line 485
     Found 20-bit comparator lessequal for signal <n0079> created at line 514
     Found 20-bit comparator greater for signal <graph_mem_r[19]_GND_5_o_LessThan_74_o> created at line 514
     Found 16-bit comparator lessequal for signal <n0083> created at line 514
@@ -446,6 +446,8 @@ Macro Statistics
  31-bit 2-to-1 multiplexer                             : 3
  6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 14
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
 
 =========================================================================
 
@@ -500,9 +502,9 @@ INFO:Xst:3226 - The RAM <Mram_text_mem> will be implemented as a BLOCK RAM, abso
     -----------------------------------------------------------------------
     | Port A                                                              |
     |     aspect ratio   | 4800-word x 6-bit                   |          |
-    |     mode           | write-first                         |          |
+    |     mode           | read-first                          |          |
     |     clkA           | connected to signal <clk_i>         | rise     |
-    |     weA            | connected to signal <GND>           | high     |
+    |     weA            | connected to signal <VCC>           | high     |
     |     addrA          | connected to signal <wr_addr_i>     |          |
     |     diA            | connected to signal <wr_data_i>     |          |
     -----------------------------------------------------------------------
@@ -544,8 +546,8 @@ The following registers are absorbed into counter <v_count_r>: 1 register on sig
 Unit <vga_sync> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga_top>.
-	Multiplier <Mmult_n0103> in block <vga_top> and adder/subtractor <Madd_txt_rom_addr_c_Madd> in block <vga_top> are combined into a MAC<Maddsub_n0103>.
 	Multiplier <Mmult_n0100> in block <vga_top> and adder/subtractor <Madd_graph_pixel_addr_c_Madd> in block <vga_top> are combined into a MAC<Maddsub_n0100>.
+	Multiplier <Mmult_n0103> in block <vga_top> and adder/subtractor <Madd_txt_rom_addr_c_Madd> in block <vga_top> are combined into a MAC<Maddsub_n0103>.
 Unit <vga_top> synthesized (advanced).
 
 =========================================================================
@@ -592,6 +594,8 @@ Macro Statistics
  31-bit 2-to-1 multiplexer                             : 3
  6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 14
+# Xors                                                 : 1
+ 1-bit xor2                                            : 1
 
 =========================================================================
 
@@ -709,16 +713,17 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 661
+# BELS                             : 665
 #      GND                         : 2
 #      INV                         : 26
 #      LUT1                        : 113
-#      LUT2                        : 17
-#      LUT3                        : 16
+#      LUT2                        : 16
+#      LUT3                        : 18
 #      LUT4                        : 50
-#      LUT5                        : 44
-#      LUT6                        : 87
+#      LUT5                        : 43
+#      LUT6                        : 90
 #      MUXCY                       : 168
+#      MUXF7                       : 1
 #      VCC                         : 2
 #      XORCY                       : 136
 # FlipFlops/Latches                : 100
@@ -752,16 +757,16 @@ Selected Device : 6slx45fgg676-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:             100  out of  54576     0%  
- Number of Slice LUTs:                  354  out of  27288     1%  
-    Number used as Logic:               353  out of  27288     1%  
+ Number of Slice LUTs:                  357  out of  27288     1%  
+    Number used as Logic:               356  out of  27288     1%  
     Number used as Memory:                1  out of   6408     0%  
        Number used as SRL:                1
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    376
-   Number with an unused Flip Flop:     276  out of    376    73%  
-   Number with an unused LUT:            22  out of    376     5%  
-   Number of fully used LUT-FF pairs:    78  out of    376    20%  
+ Number of LUT Flip Flop pairs used:    379
+   Number with an unused Flip Flop:     279  out of    379    73%  
+   Number with an unused LUT:            22  out of    379     5%  
+   Number of fully used LUT-FF pairs:    78  out of    379    20%  
    Number of unique control sets:         8
 
 IO Utilization: 
@@ -818,7 +823,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_i'
   Clock period: 9.547ns (frequency: 104.743MHz)
-  Total number of paths / destination ports: 19803 / 344
+  Total number of paths / destination ports: 19863 / 346
 -------------------------------------------------------------------------
 Delay:               10.311ns (Levels of Logic = 3)
   Source:            vga_top_i/vga_i/vga_sync_i/v_count_r_8 (FF)
@@ -895,11 +900,11 @@ clk_i          |   10.311|         |         |         |
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.08 secs
+Total CPU time to Xst completion: 7.29 secs
  
 --> 
 
-Total memory usage is 283276 kilobytes
+Total memory usage is 282572 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   45 (   0 filtered)

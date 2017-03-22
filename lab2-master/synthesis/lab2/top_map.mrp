@@ -10,23 +10,23 @@ Target Device  : xc6slx45
 Target Package : fgg676
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Mar 22 10:13:32 2017
+Mapped Date    : Wed Mar 22 10:25:03 2017
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    1
 Slice Logic Utilization:
-  Number of Slice Registers:                    82 out of  54,576    1%
-    Number used as Flip Flops:                  82
+  Number of Slice Registers:                    99 out of  54,576    1%
+    Number used as Flip Flops:                  99
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        254 out of  27,288    1%
-    Number used as logic:                      246 out of  27,288    1%
-      Number using O6 output only:             101
-      Number using O5 output only:              92
-      Number using O5 and O6:                   53
+  Number of Slice LUTs:                        327 out of  27,288    1%
+    Number used as logic:                      318 out of  27,288    1%
+      Number using O6 output only:             144
+      Number using O5 output only:             105
+      Number using O5 and O6:                   69
       Number used as ROM:                        0
     Number used as Memory:                       1 out of   6,408    1%
       Number used as Dual Port RAM:              0
@@ -35,21 +35,21 @@ Slice Logic Utilization:
         Number using O6 output only:             1
         Number using O5 output only:             0
         Number using O5 and O6:                  0
-    Number used exclusively as route-thrus:      7
+    Number used exclusively as route-thrus:      8
       Number with same-slice register load:      0
-      Number with same-slice carry load:         7
+      Number with same-slice carry load:         8
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    93 out of   6,822    1%
-  Number of MUXCYs used:                       172 out of  13,644    1%
-  Number of LUT Flip Flop pairs used:          263
-    Number with an unused Flip Flop:           181 out of     263   68%
-    Number with an unused LUT:                   9 out of     263    3%
-    Number of fully used LUT-FF pairs:          73 out of     263   27%
+  Number of occupied Slices:                   120 out of   6,822    1%
+  Number of MUXCYs used:                       204 out of  13,644    1%
+  Number of LUT Flip Flop pairs used:          336
+    Number with an unused Flip Flop:           237 out of     336   70%
+    Number with an unused LUT:                   9 out of     336    2%
+    Number of fully used LUT-FF pairs:          90 out of     336   26%
     Number of unique control sets:               8
     Number of slice register sites lost
-      to control set restrictions:              53 out of  54,576    1%
+      to control set restrictions:              52 out of  54,576    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -63,7 +63,7 @@ IO Utilization:
     IOB Flip Flops:                              1
 
 Specific Feature Utilization:
-  Number of RAMB16BWERs:                         1 out of     116    1%
+  Number of RAMB16BWERs:                         5 out of     116    4%
   Number of RAMB8BWERs:                          0 out of     232    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
     Number used as BUFIO2s:                      1
@@ -84,7 +84,7 @@ Specific Feature Utilization:
   Number of BUFHs:                               0 out of     256    0%
   Number of BUFPLLs:                             0 out of       8    0%
   Number of BUFPLL_MCBs:                         0 out of       4    0%
-  Number of DSP48A1s:                            1 out of      58    1%
+  Number of DSP48A1s:                            2 out of      58    3%
   Number of ICAPs:                               0 out of       1    0%
   Number of MCBs:                                0 out of       2    0%
   Number of PCILOGICSEs:                         0 out of       2    0%
@@ -95,9 +95,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                3.36
 
-Peak Memory Usage:  441 MB
-Total REAL time to MAP completion:  9 secs 
-Total CPU time to MAP completion:   8 secs 
+Peak Memory Usage:  446 MB
+Total REAL time to MAP completion:  10 secs 
+Total CPU time to MAP completion:   10 secs 
 
 Table of Contents
 -----------------
@@ -137,16 +137,6 @@ INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
 '1717@licserver'.
 INFO:Security:54 - 'xc6slx45' is a WebPack part.
-INFO:LIT:243 - Logical network vga_top_i/char_rom_i/BRAM_MEM_I/dout<7> has no
-   load.
-INFO:LIT:395 - The above info message is repeated 7 more times for the following
-   (max. 5 shown):
-   vga_top_i/char_rom_i/BRAM_MEM_I/dout<6>,
-   vga_top_i/char_rom_i/BRAM_MEM_I/dout<5>,
-   vga_top_i/char_rom_i/BRAM_MEM_I/dout<4>,
-   vga_top_i/char_rom_i/BRAM_MEM_I/dout<3>,
-   vga_top_i/char_rom_i/BRAM_MEM_I/dout<2>
-   To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -164,426 +154,17 @@ INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 150 block(s) removed
-   3 block(s) optimized away
- 173 signal(s) removed
+   5 block(s) optimized away
 
 Section 5 - Removed Logic
 -------------------------
-
-The trimmed logic report below shows the logic removed from your design due to
-sourceless or loadless signals, and VCC or ground connections.  If the removal
-of a signal or symbol results in the subsequent removal of an additional signal
-or symbol, the message explaining that second removal will be indented.  This
-indentation will be repeated as a chain of related logic is removed.
-
-To quickly locate the original cause for the removal of a chain of logic, look
-above the place where that logic is listed in the trimming report, then locate
-the lines that are least indented (begin at the leftmost edge).
-
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<7>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<6>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<5>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<4>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<3>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<2>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<1>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/dout<0>" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/N1" is sourceless and has been
-removed.
-The signal "vga_top_i/char_rom_i/BRAM_MEM_I/N0" is sourceless and has been
-removed.
-
-The trimmed logic reported below is either:
-   1. part of a cycle
-   2. part of disabled logic
-   3. a side-effect of other trimmed logic
-
-The signal "mem_reg/r_q<13>" is unused and has been removed.
- Unused block "mem_reg/r_q_13" (FF) removed.
-  The signal "char_address<13>" is unused and has been removed.
-   Unused block "Mmux_char_address51" (ROM) removed.
-    The signal "GND_5_o_GND_5_o_sub_51_OUT<13>" is unused and has been removed.
-     Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<13>" (XOR) removed.
-      The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<12>" is unused and has been
-removed.
-       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<12>" (MUX) removed.
-        The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<11>" is unused and has been
-removed.
-         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<11>" (MUX) removed.
-          The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<10>" is unused and has been
-removed.
-           Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<10>" (MUX) removed.
-            The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<9>" is unused and has been
-removed.
-             Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<9>" (MUX) removed.
-              The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<8>" is unused and has been
-removed.
-               Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<8>" (MUX) removed.
-                The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<7>" is unused and has been
-removed.
-                 Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<7>" (MUX) removed.
-                  The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<6>" is unused and has been
-removed.
-                   Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<6>" (MUX) removed.
-                    The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<5>" is unused and has been
-removed.
-                     Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<5>" (MUX) removed.
-                      The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<4>" is unused and has been
-removed.
-                       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<4>" (MUX) removed.
-                        The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<3>" is unused and has been
-removed.
-                         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<3>" (MUX) removed.
-                          The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<2>" is unused and has been
-removed.
-                           Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<2>" (MUX) removed.
-                            The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<1>" is unused and has been
-removed.
-                             Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<1>" (MUX) removed.
-                              The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<1>_rt" is unused and has
-been removed.
-                               Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_cy<1>_rt" (ROM) removed.
-                                The signal "mem_reg/r_q<1>" is unused and has been removed.
-                                 Unused block "mem_reg/r_q_1" (FF) removed.
-                                  The signal "char_address<1>" is unused and has been removed.
-                                   Unused block "Mmux_char_address61" (ROM) removed.
-                                    The signal "GND_5_o_GND_5_o_sub_51_OUT<1>" is unused and has been removed.
-                                     Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<1>" (XOR) removed.
-                                    The signal "mem_r[13]_GND_5_o_add_51_OUT<1>" is unused and has been removed.
-                                     Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<1>" (XOR) removed.
-                                      The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<0>" is unused and has been
-removed.
-                                       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<0>" (MUX) removed.
-                                        The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_lut<0>" is unused and has been
-removed.
-                                         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_lut<0>_INV_0" (BUF) removed.
-                                          The signal "mem_reg/r_q<0>" is unused and has been removed.
-                                           Unused block "mem_reg/r_q_0" (FF) removed.
-                                            The signal "char_address<0>" is unused and has been removed.
-                                             Unused block "Mmux_char_address1" (ROM) removed.
-                                              The signal "mem_r[13]_GND_5_o_add_51_OUT<0>" is unused and has been removed.
-                                               Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<0>" (XOR) removed.
-                                              The signal "GND_5_o_GND_5_o_equal_50_o" is unused and has been removed.
-                                               Unused block "GND_5_o_GND_5_o_equal_50_o<19>1" (ROM) removed.
-                                              The signal "print_sig" is unused and has been removed.
-                                               Unused block "print_sig1" (ROM) removed.
-                                              The signal "N16" is unused and has been removed.
-                                               Unused block "Mmux_char_address1_SW0" (ROM) removed.
-                                                The signal "run_reg/r_q_0" is unused and has been removed.
-                                                 Unused block "run_reg/r_q_0" (FF) removed.
-*The signal "run_s_i" is unused and has been removed.
-* Unused block "Mmux_run_s_i11" (ROM) removed.
-*  The signal "GND_5_o_GND_5_o_equal_48_o<13>12" is unused and has been removed.
-*   Unused block "GND_5_o_GND_5_o_equal_48_o<13>12" (ROM) removed.
-*    The signal "mem_reg/r_q<12>" is unused and has been removed.
-*     Unused block "mem_reg/r_q_12" (FF) removed.
-*      The signal "char_address<12>" is unused and has been removed.
-*       Unused block "Mmux_char_address41" (ROM) removed.
-*        The signal "GND_5_o_GND_5_o_sub_51_OUT<12>" is unused and has been removed.
-*         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<12>" (XOR) removed.
-*          The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<12>" is unused and has
-been removed.
-*           Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<12>_INV_0" (BUF)
-removed.
-*        The signal "mem_r[13]_GND_5_o_add_51_OUT<12>" is unused and has been removed.
-*         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<12>" (XOR) removed.
-*          The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<11>" is unused and has been
-removed.
-*           Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<11>" (MUX) removed.
-*            The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<10>" is unused and has been
-removed.
-*             Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<10>" (MUX) removed.
-*              The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<9>" is unused and has been
-removed.
-*               Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<9>" (MUX) removed.
-*                The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<8>" is unused and has been
-removed.
-*                 Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<8>" (MUX) removed.
-*                  The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<7>" is unused and has been
-removed.
-*                   Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<7>" (MUX) removed.
-*                    The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<6>" is unused and has been
-removed.
-*                     Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<6>" (MUX) removed.
-*                      The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<5>" is unused and has been
-removed.
-*                       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<5>" (MUX) removed.
-*                        The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<4>" is unused and has been
-removed.
-*                         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<4>" (MUX) removed.
-*                          The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<3>" is unused and has been
-removed.
-*                           Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<3>" (MUX) removed.
-*                            The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<2>" is unused and has been
-removed.
-*                             Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<2>" (MUX) removed.
-*                              The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<1>" is unused and has been
-removed.
-*                               Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<1>" (MUX) removed.
-*                                The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<1>_rt" is unused and has been
-removed.
-*                                 Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<1>_rt" (ROM) removed.
-*                              The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<2>_rt" is unused and has been
-removed.
-*                               Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<2>_rt" (ROM) removed.
-*                                The signal "mem_reg/r_q<2>" is unused and has been removed.
-*                                 Unused block "mem_reg/r_q_2" (FF) removed.
-*                                  The signal "char_address<2>" is unused and has been removed.
-*                                   Unused block "Mmux_char_address71" (ROM) removed.
-*                                    The signal "GND_5_o_GND_5_o_sub_51_OUT<2>" is unused and has been removed.
-*                                     Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<2>" (XOR) removed.
-*                                      The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<2>" is unused and has been
-removed.
-*                                       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<2>_INV_0" (BUF) removed.
-*                                    The signal "mem_r[13]_GND_5_o_add_51_OUT<2>" is unused and has been removed.
-*                                     Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<2>" (XOR) removed.
-*                                    The signal "Mmux_char_address101" is unused and has been removed.
-*                                     Unused block "Mmux_char_address1011" (ROM) removed.
-*                                      The signal "GND_5_o_GND_5_o_equal_48_o<13>1" is unused and has been removed.
-*                                       Unused block "GND_5_o_GND_5_o_equal_48_o<13>13" (ROM) removed.
-*                                        The signal "GND_5_o_GND_5_o_equal_48_o<13>11" is unused and has been removed.
-*                                         Unused block "GND_5_o_GND_5_o_equal_48_o<13>11" (ROM) removed.
-*                                          The signal "mem_reg/r_q<7>" is unused and has been removed.
-*                                           Unused block "mem_reg/r_q_7" (FF) removed.
-*                                            The signal "char_address<7>" is unused and has been removed.
-*                                             Unused block "Mmux_char_address121" (ROM) removed.
-*                                              The signal "GND_5_o_GND_5_o_sub_51_OUT<7>" is unused and has been removed.
-*                                               Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<7>" (XOR) removed.
-*                                                The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<7>" is unused and has been
-removed.
-*                                                 Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<7>_INV_0" (BUF) removed.
-*                                              The signal "mem_r[13]_GND_5_o_add_51_OUT<7>" is unused and has been removed.
-*                                               Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<7>" (XOR) removed.
-*                                                The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<7>_rt" is unused and has been
-removed.
-*                                                 Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<7>_rt" (ROM) removed.
-*                                              The signal "Mmux_char_address102" is unused and has been removed.
-*                                               Unused block "Mmux_char_address1021" (ROM) removed.
-*                                                The signal "run_s[0]_mem_r[13]_AND_140_o" is unused and has been removed.
-*                                                 Unused block "run_s[0]_mem_r[13]_AND_140_o3" (ROM) removed.
-**The signal "mem_reg/r_q<11>" is unused and has been removed.
-** Unused block "mem_reg/r_q_11" (FF) removed.
-**  The signal "char_address<11>" is unused and has been removed.
-**   Unused block "Mmux_char_address31" (ROM) removed.
-**    The signal "GND_5_o_GND_5_o_sub_51_OUT<11>" is unused and has been removed.
-**     Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<11>" (XOR) removed.
-**      The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<11>" is unused and has
-been removed.
-**       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<11>_INV_0" (BUF)
-removed.
-**    The signal "mem_r[13]_GND_5_o_add_51_OUT<11>" is unused and has been removed.
-**     Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<11>" (XOR) removed.
-**      The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<11>_rt" is unused and has been
-removed.
-**       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<11>_rt" (ROM) removed.
-**    The signal "Mmux_char_address15" is unused and has been removed.
-**     Unused block "Mmux_char_address151" (ROM) removed.
-**The signal "run_s[0]_mem_r[13]_AND_140_o2" is unused and has been removed.
-** Unused block "run_s[0]_mem_r[13]_AND_140_o2" (ROM) removed.
-**  The signal "mem_reg/r_q<10>" is unused and has been removed.
-**   Unused block "mem_reg/r_q_10" (FF) removed.
-**    The signal "char_address<10>" is unused and has been removed.
-**     Unused block "Mmux_char_address21" (ROM) removed.
-**      The signal "GND_5_o_GND_5_o_sub_51_OUT<10>" is unused and has been removed.
-**       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<10>" (XOR) removed.
-**        The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<10>" is unused and has
-been removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<10>_INV_0" (BUF)
-removed.
-**      The signal "mem_r[13]_GND_5_o_add_51_OUT<10>" is unused and has been removed.
-**       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<10>" (XOR) removed.
-**        The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<10>_rt" is unused and has been
-removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<10>_rt" (ROM) removed.
-**  The signal "mem_reg/r_q<6>" is unused and has been removed.
-**   Unused block "mem_reg/r_q_6" (FF) removed.
-**    The signal "char_address<6>" is unused and has been removed.
-**     Unused block "Mmux_char_address111" (ROM) removed.
-**      The signal "GND_5_o_GND_5_o_sub_51_OUT<6>" is unused and has been removed.
-**       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<6>" (XOR) removed.
-**        The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<6>" is unused and has been
-removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<6>_INV_0" (BUF) removed.
-**      The signal "mem_r[13]_GND_5_o_add_51_OUT<6>" is unused and has been removed.
-**       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<6>" (XOR) removed.
-**        The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<6>_rt" is unused and has been
-removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<6>_rt" (ROM) removed.
-**  The signal "mem_reg/r_q<9>" is unused and has been removed.
-**   Unused block "mem_reg/r_q_9" (FF) removed.
-**    The signal "char_address<9>" is unused and has been removed.
-**     Unused block "Mmux_char_address141" (ROM) removed.
-**      The signal "GND_5_o_GND_5_o_sub_51_OUT<9>" is unused and has been removed.
-**       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<9>" (XOR) removed.
-**        The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<9>" is unused and has been
-removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<9>_INV_0" (BUF) removed.
-**      The signal "mem_r[13]_GND_5_o_add_51_OUT<9>" is unused and has been removed.
-**       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<9>" (XOR) removed.
-**        The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<9>_rt" is unused and has been
-removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<9>_rt" (ROM) removed.
-**  The signal "mem_reg/r_q<8>" is unused and has been removed.
-**   Unused block "mem_reg/r_q_8" (FF) removed.
-**    The signal "char_address<8>" is unused and has been removed.
-**     Unused block "Mmux_char_address131" (ROM) removed.
-**      The signal "GND_5_o_GND_5_o_sub_51_OUT<8>" is unused and has been removed.
-**       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<8>" (XOR) removed.
-**        The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<8>" is unused and has been
-removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<8>_INV_0" (BUF) removed.
-**      The signal "mem_r[13]_GND_5_o_add_51_OUT<8>" is unused and has been removed.
-**       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<8>" (XOR) removed.
-**        The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<8>_rt" is unused and has been
-removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<8>_rt" (ROM) removed.
-**  The signal "run_s[0]_mem_r[13]_AND_140_o1" is unused and has been removed.
-**   Unused block "run_s[0]_mem_r[13]_AND_140_o1" (ROM) removed.
-**    The signal "mem_reg/r_q<3>" is unused and has been removed.
-**     Unused block "mem_reg/r_q_3" (FF) removed.
-**      The signal "char_address<3>" is unused and has been removed.
-**       Unused block "Mmux_char_address81" (ROM) removed.
-**        The signal "GND_5_o_GND_5_o_sub_51_OUT<3>" is unused and has been removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<3>" (XOR) removed.
-**          The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<3>" is unused and has been
-removed.
-**           Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<3>_INV_0" (BUF) removed.
-**        The signal "mem_r[13]_GND_5_o_add_51_OUT<3>" is unused and has been removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<3>" (XOR) removed.
-**          The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<3>_rt" is unused and has been
-removed.
-**           Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<3>_rt" (ROM) removed.
-**    The signal "mem_reg/r_q<5>" is unused and has been removed.
-**     Unused block "mem_reg/r_q_5" (FF) removed.
-**      The signal "char_address<5>" is unused and has been removed.
-**       Unused block "Mmux_char_address103" (ROM) removed.
-**        The signal "GND_5_o_GND_5_o_sub_51_OUT<5>" is unused and has been removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<5>" (XOR) removed.
-**          The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<5>" is unused and has been
-removed.
-**           Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<5>_INV_0" (BUF) removed.
-**        The signal "mem_r[13]_GND_5_o_add_51_OUT<5>" is unused and has been removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<5>" (XOR) removed.
-**          The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<5>_rt" is unused and has been
-removed.
-**           Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<5>_rt" (ROM) removed.
-**    The signal "mem_reg/r_q<4>" is unused and has been removed.
-**     Unused block "mem_reg/r_q_4" (FF) removed.
-**      The signal "char_address<4>" is unused and has been removed.
-**       Unused block "Mmux_char_address91" (ROM) removed.
-**        The signal "GND_5_o_GND_5_o_sub_51_OUT<4>" is unused and has been removed.
-**         Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_xor<4>" (XOR) removed.
-**          The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<4>" is unused and has been
-removed.
-**           Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<4>_INV_0" (BUF) removed.
-**        The signal "mem_r[13]_GND_5_o_add_51_OUT<4>" is unused and has been removed.
-**         Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<4>" (XOR) removed.
-**          The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<4>_rt" is unused and has been
-removed.
-**           Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<4>_rt" (ROM) removed.
-*          The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<12>_rt" is unused and has been
-removed.
-*           Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<12>_rt" (ROM) removed.
-      The signal "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<13>" is unused and has
-been removed.
-       Unused block "Msub_GND_5_o_GND_5_o_sub_51_OUT<13:0>_lut<13>_INV_0" (BUF)
-removed.
-    The signal "mem_r[13]_GND_5_o_add_51_OUT<13>" is unused and has been removed.
-     Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<13>" (XOR) removed.
-      The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<12>" is unused and has been
-removed.
-       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_cy<12>" (MUX) removed.
-      The signal "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<13>_rt" is unused and has been
-removed.
-       Unused block "Madd_mem_r[13]_GND_5_o_add_51_OUT_xor<13>_rt" (ROM) removed.
-The signal "char_reg/r_q<1>" is unused and has been removed.
- Unused block "char_reg/r_q_1" (FF) removed.
-  The signal "char_reg/Mcount_r_q1" is unused and has been removed.
-   Unused block "char_reg/Mcount_r_q_xor<1>11" (ROM) removed.
-    The signal "char_reg/r_q<0>" is unused and has been removed.
-     Unused block "char_reg/r_q_0" (FF) removed.
-      The signal "char_reg/Mcount_r_q" is unused and has been removed.
-       Unused block "char_reg/Mcount_r_q_xor<0>11" (ROM) removed.
-The signal "GND_5_o_run_s[0]_OR_57_o" is unused and has been removed.
- Unused block "GND_5_o_run_s[0]_OR_57_o1" (ROM) removed.
-The signal "char_value<1>" is unused and has been removed.
- Unused block "Mmux_char_value21" (ROM) removed.
-The signal "char_value<0>" is unused and has been removed.
- Unused block "Mmux_char_value11" (ROM) removed.
-The signal "vga_top_i/txt_rom_addr_c<0>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<1>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<2>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<3>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<4>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<5>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<6>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<7>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<8>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<9>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<10>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<11>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<12>" is unused and has been removed.
-The signal "vga_top_i/txt_rom_addr_c<13>" is unused and has been removed.
-The signal "vga_top_i/char_addr_s<0>" is unused and has been removed.
-The signal "vga_top_i/char_addr_s<1>" is unused and has been removed.
-The signal "vga_top_i/char_addr_s<2>" is unused and has been removed.
-The signal "vga_top_i/char_addr_s<3>" is unused and has been removed.
-The signal "vga_top_i/char_addr_s<4>" is unused and has been removed.
-The signal "vga_top_i/char_addr_s<5>" is unused and has been removed.
-The signal "vga_top_i/text_mem_i/index<0>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index11" (ROM) removed.
-  The signal "N32" is unused and has been removed.
-   Unused block "vga_top_i/text_mem_i/index_t[30]_GND_27_o_LessThan_5_o1_SW2" (ROM)
-removed.
-  The signal "N12" is unused and has been removed.
-   Unused block "vga_top_i/text_mem_i/index_t[30]_GND_27_o_LessThan_5_o1_SW0" (ROM)
-removed.
-The signal "vga_top_i/text_mem_i/index<1>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index51" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<2>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index61" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<3>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index71" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<4>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index81" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<5>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index91" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<6>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index101" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<7>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index111" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<8>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index121" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<9>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index131" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<10>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index21" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<11>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index31" (ROM) removed.
-The signal "vga_top_i/text_mem_i/index<12>" is unused and has been removed.
- Unused block "vga_top_i/text_mem_i/Mmux_index41" (ROM) removed.
-Unused block "vga_top_i/Maddsub_n0103" (DSP48A1) removed.
-Unused block "vga_top_i/char_rom_i/BRAM_MEM_I/B6/RAMB16BWER" (RAMB16BWER)
-removed.
-Unused block "vga_top_i/char_rom_i/BRAM_MEM_I/GND" (ZERO) removed.
-Unused block "vga_top_i/char_rom_i/BRAM_MEM_I/VCC" (ONE) removed.
-Unused block "vga_top_i/text_mem_i/Mram_text_mem1" (RAMB16BWER) removed.
-Unused block "vga_top_i/text_mem_i/Mram_text_mem2" (RAMB16BWER) removed.
-Unused block "vga_top_i/text_mem_i/Mram_text_mem3" (RAMB16BWER) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
 GND 		XST_GND
 VCC 		XST_VCC
+GND 		vga_top_i/char_rom_i/BRAM_MEM_I/GND
+VCC 		vga_top_i/char_rom_i/BRAM_MEM_I/VCC
 
 To enable printing of redundant blocks removed and signals merged, set the
 detailed map report option and rerun map.
