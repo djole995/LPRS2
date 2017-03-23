@@ -23,6 +23,9 @@ entity top is
   port (
     clk_i          : in  std_logic;
     reset_n_i      : in  std_logic;
+	 sw1_i : in std_logic;
+	 sw2_i : in std_logic;
+	 sw3_i : in std_logic;
     -- vga
     vga_hsync_o    : out std_logic;
     vga_vsync_o    : out std_logic;
@@ -204,6 +207,9 @@ end component reg;
   signal draw_r: std_logic_vector(0 downto 0);
   signal draw_i: std_logic_vector(0 downto 0);
   
+  signal fire_i: std_logic_vector(0 downto 0);
+  signal fire_r: std_logic_vector(0 downto 0);
+  
   signal sh_graph_cnt : std_logic_vector(SH_REG_WIDTH-1 downto 0);         --Brojac koji kada dostigne max vrednost prouzrokuje 
   signal sh_graph_cnt_r : std_logic_vector(SH_REG_WIDTH-1 downto 0);
 
@@ -335,6 +341,18 @@ begin
 		in_rst => vga_rst_n_s,
 		i_d => draw_i,
 		o_q => draw_r
+	);
+	
+	fire_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 1,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => pix_clock_s,
+		in_rst => vga_rst_n_s,
+		i_d => fire_i,
+		o_q => fire_r
 	);
 
   clk5m_inst : ODDR2
@@ -506,27 +524,39 @@ end process;
   --pixel_value
   --pixel_we
  pixel_we <= '1';
+ 
+
 pixel_address <= (others => '0') when graph_mem_r = 9600-1
 				--	else graph_mem_r+16 when pixel_colon_r = 4
 					else graph_mem_r+1;
 
 --kvadrat 80*80	
-draw_i(0) <= '1' when (graph_mem_r >= 4800 + pixel_row_r) and graph_mem_r < 4800 + pixel_row_r +1604 and (pixel_colon_r >= pixel_row_r and pixel_colon_r < pixel_row_r+4) 
+draw_i(0) <= '1' when (graph_mem_r >= 4800 + pixel_row_r-1) and graph_mem_r < 4800 + pixel_row_r +1604 and (pixel_colon_r >= pixel_row_r and pixel_colon_r < pixel_row_r+4) 
 			else  '0';
+			
+fire_i <= "1" when sw3_i = '0' and sh_graph_cnt_r = SH_REG_MAX_VALUE
+		else fire_r;
 
 pixel_colon <= (others => '0') when pixel_colon_r = 19
 				else pixel_colon_r+1; -- when draw_r(0) = '1'
 				--else pixel_colon_r;
 				
-sh_graph_cnt <= sh_graph_cnt_r+1;
+sh_graph_cnt <= sh_graph_cnt_r+1 when sw1_i = '0' or sw2_i = '0' or sw3_i = '0';
 					
-pixel_row <= (others => '0') when pixel_row_r = 16 and sh_graph_cnt_r = SH_REG_MAX_VALUE
-				else pixel_row_r+1 when sh_graph_cnt_r = SH_REG_MAX_VALUE
-				else pixel_row_r;
+--pixel_row <= (others => '0') when pixel_row_r = 16 and sh_graph_cnt_r = SH_REG_MAX_VALUE
+	--			else pixel_row_r+1 when sh_graph_cnt_r = SH_REG_MAX_VALUE
+		--		else pixel_row_r;
+pixel_row <=  --(others => '0') when pixel_row_r = 16 and sh_graph_cnt_r = SH_REG_MAX_VALUE and sw1_i = '0'
+			--else conv_std_logic_vector(16, 16) when  pixel_row_r = 0 and sh_graph_cnt_r = SH_REG_MAX_VALUE and sw2_i = '0'
+			pixel_row_r+1 when sw1_i = '0' and sh_graph_cnt_r = SH_REG_MAX_VALUE and pixel_row_r < 12
+			else pixel_row_r-1 when sw2_i = '0' and sh_graph_cnt_r = SH_REG_MAX_VALUE and pixel_row_r > 0
+			else pixel_row_r;
 
-process(draw_r, pixel_colon_r) begin
+process(draw_r, pixel_colon_r, fire_r, pixel_row_r, graph_mem_r) begin
 	if(draw_r = "1") then
 		pixel_value <= (others => '1');
+	elsif(fire_r = "1" and graph_mem_r = 4800-20 + pixel_row_r + 2) then
+		pixel_value <= x"000ff000";
 	else
 		pixel_value <= (others => '0');
 	end if;

@@ -36,7 +36,7 @@ Setup/Hold to clock clk_i
             |Max Setup to|  Process   |Max Hold to |  Process   |                     | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)    | Phase  |
 ------------+------------+------------+------------+------------+---------------------+--------+
-reset_n_i   |    5.396(R)|      SLOW  |   -2.733(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+reset_n_i   |    5.287(R)|      SLOW  |   -2.670(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
 ------------+------------+------------+------------+------------+---------------------+--------+
 
 Clock clk_i to Pad
@@ -44,29 +44,29 @@ Clock clk_i to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                     | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)    | Phase  |
 ------------+-----------------+------------+-----------------+------------+---------------------+--------+
-blank_o     |        14.589(R)|      SLOW  |         6.578(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<0>  |        17.967(R)|      SLOW  |         8.598(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<1>  |        17.172(R)|      SLOW  |         8.134(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<2>  |        17.002(R)|      SLOW  |         8.040(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<3>  |        17.047(R)|      SLOW  |         8.080(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<4>  |        13.857(R)|      SLOW  |         6.266(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<5>  |        16.763(R)|      SLOW  |         7.897(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<6>  |        14.041(R)|      SLOW  |         6.364(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-green_o<7>  |        16.118(R)|      SLOW  |         7.444(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-pix_clock_o |        12.109(R)|      SLOW  |         5.212(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-            |        12.047(F)|      SLOW  |         5.146(F)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-psave_o     |        14.377(R)|      SLOW  |         6.523(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<0>    |        17.681(R)|      SLOW  |         8.516(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<1>    |        17.870(R)|      SLOW  |         8.607(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<2>    |        17.575(R)|      SLOW  |         8.420(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<3>    |        17.665(R)|      SLOW  |         8.499(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<4>    |        17.448(R)|      SLOW  |         8.390(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<5>    |        17.149(R)|      SLOW  |         8.119(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<6>    |        17.202(R)|      SLOW  |         8.183(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-red_o<7>    |        17.018(R)|      SLOW  |         8.085(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-sync_o      |        14.250(R)|      SLOW  |         6.413(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-vga_hsync_o |        14.406(R)|      SLOW  |         6.586(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
-vga_vsync_o |        14.521(R)|      SLOW  |         6.637(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+blank_o     |        14.115(R)|      SLOW  |         6.349(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<0>  |        17.843(R)|      SLOW  |         8.191(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<1>  |        17.438(R)|      SLOW  |         8.326(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<2>  |        17.268(R)|      SLOW  |         8.232(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<3>  |        17.313(R)|      SLOW  |         8.272(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<4>  |        14.086(R)|      SLOW  |         6.341(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<5>  |        17.030(R)|      SLOW  |         8.090(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<6>  |        14.091(R)|      SLOW  |         6.335(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+green_o<7>  |        16.384(R)|      SLOW  |         7.636(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+pix_clock_o |        12.056(R)|      SLOW  |         5.149(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+            |        12.056(F)|      SLOW  |         5.155(F)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+psave_o     |        13.620(R)|      SLOW  |         6.149(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<0>    |        18.408(R)|      SLOW  |         8.986(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<1>    |        18.268(R)|      SLOW  |         8.920(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<2>    |        17.973(R)|      SLOW  |         8.733(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<3>    |        17.984(R)|      SLOW  |         8.749(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<4>    |        18.205(R)|      SLOW  |         8.879(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<5>    |        17.550(R)|      SLOW  |         8.421(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<6>    |        17.425(R)|      SLOW  |         8.367(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+red_o<7>    |        17.409(R)|      SLOW  |         8.366(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+sync_o      |        14.695(R)|      SLOW  |         6.659(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+vga_hsync_o |        13.879(R)|      SLOW  |         6.314(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
+vga_vsync_o |        14.024(R)|      SLOW  |         6.371(R)|      FAST  |vga_top_i/vga_i/clk_s|   0.000|
 ------------+-----------------+------------+-----------------+------------+---------------------+--------+
 
 Clock to Setup on destination clock clk_i
@@ -74,11 +74,38 @@ Clock to Setup on destination clock clk_i
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_i          |   12.604|         |         |         |
+clk_i          |   11.330|         |         |         |
+sw1_i          |    2.093|    8.519|         |         |
+sw2_i          |    2.657|    8.519|         |         |
+sw3_i          |    0.775|    8.519|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw1_i
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_i          |         |         |   -0.147|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw2_i
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_i          |         |         |   -0.147|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock sw3_i
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_i          |         |         |   -0.147|         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Mar 22 10:25:28 2017 
+Analysis completed Thu Mar 23 08:45:42 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:

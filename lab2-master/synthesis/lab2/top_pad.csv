@@ -1,7 +1,7 @@
 #Release 14.6 - par P.68d (nt64)
 #Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-#Wed Mar 22 10:25:23 2017
+#Thu Mar 23 08:45:37 2017
 
 #
 ## NOTE: This file is designed to be imported into a spreadsheet program
@@ -68,7 +68,7 @@ AA20,,,NC,,,,,,,,,,,,
 AA21,,,VCCAUX,,,,,,,,2.5,,,,
 AA22,,IOBS,IO_L73N_1,UNUSED,,1,,,,,,,,,
 AA23,,IOBM,IO_L63P_1,UNUSED,,1,,,,,,,,,
-AA24,,IOBS,IO_L63N_1,UNUSED,,1,,,,,,,,,
+AA24,sw3_i,IOB,IO_L63N_1,INPUT,LVCMOS25*,1,,,,NONE,,LOCATED,NO,NONE,
 AA25,,IOBM,IO_L51P_M1DQ12_1,UNUSED,,1,,,,,,,,,
 AA26,,IOBS,IO_L51N_M1DQ13_1,UNUSED,,1,,,,,,,,,
 AB1,,IOBS,IO_L32N_M3DQ15_3,UNUSED,,3,,,,,,,,,
@@ -119,8 +119,8 @@ AC19,,IOBM,IO_L7P_2,UNUSED,,2,,,,,,,,,
 AC20,,IOBM,IO_L5P_2,UNUSED,,2,,,,,,,,,
 AC21,,,VCCO_2,,,2,,,,,any******,,,,
 AC22,,,CMPCS_B_2,,,,,,,,,,,,
-AC23,,IOBM,IO_L65P_1,UNUSED,,1,,,,,,,,,
-AC24,,IOBS,IO_L65N_1,UNUSED,,1,,,,,,,,,
+AC23,sw2_i,IOB,IO_L65P_1,INPUT,LVCMOS25*,1,,,,NONE,,LOCATED,NO,NONE,
+AC24,sw1_i,IOB,IO_L65N_1,INPUT,LVCMOS25*,1,,,,NONE,,LOCATED,NO,NONE,
 AC25,,IOBM,IO_L50P_M1UDQS_1,UNUSED,,1,,,,,,,,,
 AC26,,IOBS,IO_L50N_M1UDQSN_1,UNUSED,,1,,,,,,,,,
 AD1,,IOBS,IO_L33N_M3DQ13_3,UNUSED,,3,,,,,,,,,
