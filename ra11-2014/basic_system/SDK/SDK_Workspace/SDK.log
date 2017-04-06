@@ -1,0 +1,10 @@
+09:48:44.096 INFO  - Processing command line option -hwspec D:\ra11-2014\SDK\SDK_Export\hw\system.xml. 
+10:03:53.048 INFO  - Settings changed on project hello_world_bsp. Triggering a rebuild... 
+10:03:53.260 INFO  - Refreshed build settings on project hello_world 
+10:04:27.624 INFO  - FPGA configured successfully with bitstream "D:/ra11-2014/basic_system/SDK/SDK_Workspace/ra11-2014_hw_platform/download.bit" 
+10:08:12.226 INFO  - microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching. 
+10:08:16.705 INFO  - System reset is completed. 
+10:09:38.865 INFO  - System reset is completed. 
+10:12:20.745 INFO  - System reset is completed. 
+10:18:08.558 INFO  - FPGA Cable Disconnected. All active launches will be terminated. 
+10:27:35.664 ERROR - Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  

@@ -1,0 +1,75 @@
+Release 14.6 - xst P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to D:/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: user_logic.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:/Xilinx/14.6/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd" into library proc_common_v3_00_a
+Parsing package <proc_common_pkg>.
+Parsing package body <proc_common_pkg>.
+Parsing VHDL file "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" into library vga_mem_v1_00_a
+Parsing entity <user_logic>.
+ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 99: <c_num_reg> is not declared.
+ERROR:HDLCompiler:806 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 99: Syntax error near ":".
+Parsing architecture <IMP> of entity <user_logic>.
+ERROR:HDLCompiler:374 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 151: Entity <user_logic> is not yet compiled.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 163: "res_type" cannot be used in this expression.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 164: "res_type" cannot be used in this expression.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 165: "res_type" cannot be used in this expression.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 166: "res_type" cannot be used in this expression.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 260: "graph_mem_data_width" cannot be used in this expression.
+ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 301: <pix_clock_o> is not declared.
+ERROR:HDLCompiler:192 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 301: Actual of formal out port q cannot be an expression
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 315: "res_type" cannot be used in this expression.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 320: "text_mem_data_width" cannot be used in this expression.
+ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 321: "graph_mem_data_width" cannot be used in this expression.
+ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 325: <clk_i> is not declared.
+ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 326: <reset_n_i> is not declared.
+ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 351: <vga_hsync_o> is not declared.
+ERROR:HDLCompiler:192 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 351: Actual of formal out port vga_hsync_o cannot be an expression
+ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 352: <vga_vsync_o> is not declared.
+ERROR:HDLCompiler:192 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 352: Actual of formal out port vga_vsync_o cannot be an expression
+Sorry, too many errors..
+--> 
+
+Total memory usage is 184672 kilobytes
+
+Number of errors   :   19 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

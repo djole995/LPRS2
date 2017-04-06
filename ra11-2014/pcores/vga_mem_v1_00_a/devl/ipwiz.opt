@@ -1,0 +1,8 @@
+-batch 
+-create vga_mem 
+-ver 1.00.a 
+-dir "D:\ra11-2014" 
+-lang vhdl 
+-bus axi4lite s 
+-xps 
+-ise 

@@ -1,0 +1,20 @@
+##############################################################################
+## Filename:          D:/ra11-2014/pcores/vga_mem_v1_00_a/data/vga_mem_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Wed Apr 05 09:38:26 2017 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all 
+lib axi_lite_ipif_v1_01_a  all 
+lib vga_mem_v1_00_a user_logic vhdl
+lib vga_mem_v1_00_a vga_mem vhdl
+lib vga_mem_v1_00_a char_rom vhdl
+lib vga_mem_v1_00_a graphics_mem vhdl
+lib vga_mem_v1_00_a text_mem vhdl
+lib vga_mem_v1_00_a vga vhdl
+lib vga_mem_v1_00_a vga_sync vhdl
+lib vga_mem_v1_00_a vga_top vhdl
+lib vga_mem_v1_00_a dcm108MHz vhdl
+lib vga_mem_v1_00_a dcm25MHz vhdl
+lib vga_mem_v1_00_a dcm50MHz vhdl
+lib vga_mem_v1_00_a dcm75MHz vhdl
