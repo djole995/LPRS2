@@ -23,6 +23,9 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="flip_flop.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="flip_flop.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="flip_flop.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="user_logic.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="user_logic.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="user_logic.xst"/>
@@ -75,7 +78,10 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="vga_mem.lso"/>
       <outfile xil_pn:name="vga_mem.ngc"/>

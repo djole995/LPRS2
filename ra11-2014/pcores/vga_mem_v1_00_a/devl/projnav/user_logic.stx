@@ -1,16 +1,16 @@
 Release 14.6 - xst P.68d (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> Parameter TMPDIR set to D:/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst/projnav.tmp
+--> Parameter TMPDIR set to D:/LPRS2/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.28 secs
  
---> Parameter xsthdpdir set to D:/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst
+--> Parameter xsthdpdir set to D:/LPRS2/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.28 secs
  
 --> Reading design: user_logic.prj
 
@@ -39,37 +39,65 @@ TABLE OF CONTENTS
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\vga_sync.vhd" into library vga_mem_v1_00_a
+Parsing entity <vga_sync>.
+Parsing architecture <rtl> of entity <vga_sync>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\dcm75MHz.vhd" into library vga_mem_v1_00_a
+Parsing entity <dcm75MHz>.
+Parsing architecture <xilinx> of entity <dcm75mhz>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\dcm50MHz.vhd" into library vga_mem_v1_00_a
+Parsing entity <dcm50MHz>.
+Parsing architecture <xilinx> of entity <dcm50mhz>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\dcm25MHz.vhd" into library vga_mem_v1_00_a
+Parsing entity <dcm25MHz>.
+Parsing architecture <xilinx> of entity <dcm25mhz>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\dcm108MHz.vhd" into library vga_mem_v1_00_a
+Parsing entity <dcm108MHz>.
+Parsing architecture <xilinx> of entity <dcm108mhz>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\vga.vhd" into library vga_mem_v1_00_a
+Parsing entity <vga>.
+Parsing architecture <rtl> of entity <vga>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\text_mem.vhd" into library vga_mem_v1_00_a
+Parsing entity <text_mem>.
+Parsing architecture <arc_text_mem> of entity <text_mem>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\graphics_mem.vhd" into library vga_mem_v1_00_a
+Parsing entity <graphics_mem>.
+Parsing architecture <arc_graphics_mem> of entity <graphics_mem>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\char_rom.vhd" into library vga_mem_v1_00_a
+Parsing entity <char_rom>.
+Parsing architecture <Behavioral> of entity <char_rom>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\vga_top.vhd" into library vga_mem_v1_00_a
+Parsing entity <vga_top>.
+Parsing architecture <rtl> of entity <vga_top>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\devl\projnav\reg.vhd" into library work
+Parsing entity <reg>.
+Parsing architecture <arch_reg> of entity <reg>.
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\devl\projnav\flip_flop.vhd" into library work
+Parsing entity <flip_flop>.
+Parsing architecture <arch_flip_flop> of entity <flip_flop>.
 Parsing VHDL file "C:/Xilinx/14.6/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd" into library proc_common_v3_00_a
 Parsing package <proc_common_pkg>.
 Parsing package body <proc_common_pkg>.
-Parsing VHDL file "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" into library vga_mem_v1_00_a
+Parsing VHDL file "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" into library vga_mem_v1_00_a
 Parsing entity <user_logic>.
-ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 99: <c_num_reg> is not declared.
-ERROR:HDLCompiler:806 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 99: Syntax error near ":".
 Parsing architecture <IMP> of entity <user_logic>.
-ERROR:HDLCompiler:374 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 151: Entity <user_logic> is not yet compiled.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 163: "res_type" cannot be used in this expression.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 164: "res_type" cannot be used in this expression.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 165: "res_type" cannot be used in this expression.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 166: "res_type" cannot be used in this expression.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 260: "graph_mem_data_width" cannot be used in this expression.
-ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 301: <pix_clock_o> is not declared.
-ERROR:HDLCompiler:192 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 301: Actual of formal out port q cannot be an expression
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 315: "res_type" cannot be used in this expression.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 320: "text_mem_data_width" cannot be used in this expression.
-ERROR:HDLCompiler:37 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 321: "graph_mem_data_width" cannot be used in this expression.
-ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 325: <clk_i> is not declared.
-ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 326: <reset_n_i> is not declared.
-ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 351: <vga_hsync_o> is not declared.
-ERROR:HDLCompiler:192 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 351: Actual of formal out port vga_hsync_o cannot be an expression
-ERROR:HDLCompiler:69 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 352: <vga_vsync_o> is not declared.
-ERROR:HDLCompiler:192 - "D:\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 352: Actual of formal out port vga_vsync_o cannot be an expression
-Sorry, too many errors..
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 521: Case choice must be a locally static expression
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 522: Case choice must be a locally static expression
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 523: Case choice must be a locally static expression
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 524: Case choice must be a locally static expression
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 525: Case choice must be a locally static expression
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 526: Case choice must be a locally static expression
+WARNING:HDLCompiler:957 - "D:\LPRS2\ra11-2014\pcores\vga_mem_v1_00_a\hdl\vhdl\user_logic.vhd" Line 527: Case choice must be a locally static expression
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.32 secs
+ 
 --> 
 
-Total memory usage is 184672 kilobytes
+Total memory usage is 198036 kilobytes
 
-Number of errors   :   19 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

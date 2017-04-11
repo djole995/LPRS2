@@ -235,6 +235,31 @@ architecture IMP of user_logic is
   );
   end component;
   
+  component reg is
+	generic(
+		WIDTH    : positive := 1;
+		RST_INIT : integer := 0
+	);
+	port(
+		i_clk  : in  std_logic;
+		in_rst : in  std_logic;
+		i_d    : in  std_logic_vector(WIDTH-1 downto 0);
+		o_q    : out std_logic_vector(WIDTH-1 downto 0)
+	);
+	end component;
+	
+	component flip_flop is
+	generic(
+		RST_INIT : boolean := false
+	);
+	port(
+		i_clk  : in  std_logic;
+		in_rst : in  std_logic;
+		i_d    : in  std_logic;
+		o_q    : out std_logic
+	);
+	end component;
+  
   
   constant update_period     : std_logic_vector(31 downto 0) := conv_std_logic_vector(1, 32);
   
@@ -245,6 +270,7 @@ architecture IMP of user_logic is
   signal graphics_lenght     : std_logic_vector(GRAPH_MEM_ADDR_WIDTH-1 downto 0);
   
   signal direct_mode         : std_logic;
+  signal direct_mode_r         : std_logic;
   --
   signal reg_we : std_logic; 
   --
@@ -254,6 +280,13 @@ architecture IMP of user_logic is
   signal foreground_color    : std_logic_vector(23 downto 0);
   signal background_color    : std_logic_vector(23 downto 0);
   signal frame_color         : std_logic_vector(23 downto 0);
+  
+  signal font_size_r           : std_logic_vector(3 downto 0);
+  signal show_frame_r         : std_logic;
+  signal display_mode_r        : std_logic_vector(1 downto 0);  -- 01 - text mode, 10 - graphics mode, 11 - text & graphics
+  signal foreground_color_r    : std_logic_vector(23 downto 0);
+  signal background_color_r    : std_logic_vector(23 downto 0);
+  signal frame_color_r         : std_logic_vector(23 downto 0);
 
   signal char_we             : std_logic;
   signal char_address        : std_logic_vector(MEM_ADDR_WIDTH-1 downto 0);
@@ -274,6 +307,87 @@ architecture IMP of user_logic is
   signal dir_pixel_row       : std_logic_vector(10 downto 0);
 
 begin
+	direct_mode_reg : flip_flop
+	GENERIC MAP (
+		RST_INIT => false
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => direct_mode_r,
+		o_q => direct_mode
+	);
+	
+	display_mode_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 2,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => display_mode_r,
+		o_q => display_mode
+	);
+	
+	show_frame_reg : flip_flop 
+	GENERIC MAP (
+		RST_INIT => false
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => show_frame_r,
+		o_q => show_frame
+	);
+	
+	font_size_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 4,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => font_size_r,
+		o_q => font_size
+	);
+	
+	foreground_color_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 24,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => foreground_color_r,
+		o_q => foreground_color
+	);
+	
+	background_color_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 24,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => background_color_r,
+		o_q => background_color
+	);
+	
+	frame_color_reg : reg 
+	GENERIC MAP (
+	   WIDTH => 24,
+		RST_INIT => 0
+	)		
+	PORT MAP (
+	   i_clk => clk_i,
+		in_rst => reset_n_i,
+		i_d => frame_color_r,
+		o_q => frame_color
+	);
 
   --USER logic implementation added here
    -- calculate message lenght from font size
@@ -380,26 +494,41 @@ begin
   
   direct_mode <= '0';
   
-  char_we <= '1' when Bus2Ip_Addr(31 downto 30) = "01"
+  char_we <= '1' when Bus2Ip_Addr(0 downto 1) = "01"
 					else '0';
 					
-  char_address <= Bus2Ip_Addr(29 downto 2) when char_we = '1'
+  char_address <= Bus2Ip_Addr(2 downto 25) when char_we = '1'
 					else (others => '0');
 					
   char_value <= Bus2Ip_Data when char_we = '1'
 					else (others => '0');
 		
-  graph_we <= '1' when Bus2Ip_Addr(31 downto 30) = "10"
+  pixel_we <= '1' when Bus2Ip_Addr(0 downto 1) = "10"
 					else '0';
 
-   pixel_address <= Bus2Ip_Addr(29 downto 2) when graph_we = '1'
+   pixel_address <= Bus2Ip_Addr(2 downto 25) when pixel_we = '1'
 					else (others => '0');
 	
-	pixel_value <= Bus2Ip_Data when graph_we = '1'
+	pixel_value <= Bus2Ip_Data when pixel_we = '1'
 					else (others => '0');
 					
-  reg_we <= '1' when Bus2Ip_Addr(31 downto 30) = "00"
+	reg_we <= '1' when Bus2Ip_Addr(0 downto 1) = "00"
 					else '0';
+	
+	process(reg_we, Bus2IP_Data, Bus2IP_Addr) begin
+		if(reg_we = '1') then
+			case(Bus2IP_Addr(2 downto 25)) is
+				when conv_std_logic_vector(0, 24) => direct_mode_r <= Bus2IP_Data(0);
+				when conv_std_logic_vector(1, 24) => display_mode_r <= Bus2IP_Data(1 downto 0);
+				when conv_std_logic_vector(2, 24) => show_frame_r <= Bus2IP_Data(0);
+				when conv_std_logic_vector(3, 24) => font_size_r <= Bus2IP_Data(3 downto 0);
+				when conv_std_logic_vector(4, 24) => foreground_color_r <= Bus2IP_Data(23 downto 0);
+				when conv_std_logic_vector(5, 24) => background_color_r <= Bus2IP_Data(23 downto 0);
+				when conv_std_logic_vector(6, 24) => frame_color_r <= Bus2IP_Data(23 downto 0);
+			end case;
+		end if;
+	end process;
+				
   
   ------------------------------------------
   -- Example code to drive IP to Bus signals

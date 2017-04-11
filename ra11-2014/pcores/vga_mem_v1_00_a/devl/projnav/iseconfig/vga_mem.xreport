@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-04-06T07:26:16</DateModified>
+  <DateModified>2017-04-11T21:00:40</DateModified>
   <ModuleName>vga_mem</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>D:/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/iseconfig/vga_mem.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav\</ImplementationReportsDirectory>
+  <SavedFilePath>D:/LPRS2/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/iseconfig/vga_mem.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/LPRS2/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav\</ImplementationReportsDirectory>
   <DateInitialized>2017-04-05T09:49:59</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

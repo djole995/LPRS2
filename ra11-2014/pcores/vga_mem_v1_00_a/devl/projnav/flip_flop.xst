@@ -2,7 +2,7 @@ set -tmpdir "D:/LPRS2/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst/projnav.
 set -xsthdpdir "D:/LPRS2/ra11-2014/pcores/vga_mem_v1_00_a/devl/projnav/xst"
 run -compileonly yes
 -p xc6slx45-2-fgg676
--top user_logic
+-top flip_flop
 -opt_mode Speed
 -opt_level 1
 -power NO
@@ -47,4 +47,4 @@ run -compileonly yes
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
--ifn user_logic.prj
+-ifn flip_flop.prj
